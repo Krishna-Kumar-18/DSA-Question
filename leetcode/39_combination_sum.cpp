@@ -1,35 +1,14 @@
-class Solution {
-public:
-    void solve(int ind, int target, vector<int>&candidates, vector<vector<int>>&ans, vector<int>&temp)
-    {
-        if(ind == candidates.size())
-        {
-            if(target == 0)
-            {
-                ans.push_back(temp);
-            }
-            return;
-        }
+#include <bits/stdc++.h>
+using namespace std;
 
-        if(candidates[ind]<=target)
-        {
-            temp.push_back(candidates[ind]);
-            solve(ind, target-candidates[ind], candidates, ans, temp);
-            temp.pop_back();
-        }
+int main()
+{
+    string ans = "";
 
-        solve(ind+1, target, candidates, ans, temp);
-    }
+    int num = 1;
 
-    vector<vector<int>> combinationSum(vector<int>& candidates, int target) 
-    {
-        vector<vector<int>>ans;
-        vector<int>temp;
+    ans += (num+'0');
 
-        int ind = 0;
-
-        solve(ind, target, candidates, ans, temp);
-
-        return ans;
-    }
-};
+    cout << ans << endl;
+    return 0;
+}
