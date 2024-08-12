@@ -18,7 +18,8 @@ class Solution {
         
         Node* ans = head->next;
         head->next = NULL;
-        
+
         return ans;
+        
     }
 };
