@@ -1,3 +1,6 @@
+                                                            // Moore Algorithm
+
+
 class Solution {
   public:
     vector<int> findMajority(vector<int>& nums) 
