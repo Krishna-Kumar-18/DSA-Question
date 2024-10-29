@@ -39,7 +39,7 @@ class Solution {
         
         int freq_1=0, freq_2=0;
         for(int i=0; i<nums.size(); i++)
-        {
+        {ASSETS[assetIndex].startASSETS[assetIndex].start
             if(ele_1==nums[i])
             {
                 freq_1++;
