@@ -1,4 +1,4 @@
-                        // Top - Down Approach
+                                                                    // Top - Down Approach
 
 class Solution {
 public:
@@ -40,7 +40,7 @@ public:
 };
 
 
-                            // Bottom - UP Approach
+                                                                    // Bottom - UP Approach
 
 class Solution {
 public:
@@ -84,7 +84,7 @@ public:
 
 
 
-                                        // Space Optimization
+                                                                    // Space Optimization
 
 
 class Solution {
