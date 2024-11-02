@@ -80,3 +80,42 @@ public:
         return ans;
     }
 };
+
+
+
+
+                                        // Space Optimization
+
+
+class Solution {
+public:
+    int rob(vector<int>& nums) 
+    {
+        int n = nums.size();
+
+        int prev = nums[0];
+        int prev_2 = 0;
+
+        int pick = INT_MIN;
+        for(int i=1; i<n; i++)
+        {
+            if(i-2<0)
+            {
+                pick = nums[i] + 0;
+            }
+            else
+            {
+                pick = nums[i] + prev_2;
+            }
+
+            int non_pick = 0 + prev;
+ 
+            int curr = max(pick, non_pick);
+
+            prev_2 = prev;
+            prev = curr;
+        }
+
+        return prev;
+    }
+};
