@@ -37,3 +37,23 @@ public:
         return false;
     }
 };
+
+
+
+                                                                    // Another Approach
+
+
+class Solution {
+public:
+    bool rotateString(string s, string goal) 
+    {
+        if(s.length()!=goal.length())
+        {
+            return false;
+        }
+        
+        string text = s+s;
+
+        return text.contains(goal);
+    }
+};
