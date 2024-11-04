@@ -91,3 +91,57 @@ public:
         return dp[n-1][m-1];
     }
 };
+
+
+
+
+                                                                            // Space Optimization
+
+class Solution {
+public:
+    int minPathSum(vector<vector<int>>& grid) 
+    {
+        int n = grid.size();
+        int m = grid[0].size();
+
+        vector<int>prev(m, 0);
+
+        for(int i=0; i<n; i++)
+        {
+            vector<int>curr(m, 0);
+            for(int j=0; j<m; j++)
+            {
+                if(i==0 && j==0)
+                {
+                    curr[j] = grid[i][j];
+                }
+                else 
+                {
+                    int down = grid[i][j];
+                    if(i>0)
+                    {
+                        down += prev[j];
+                    }
+                    else 
+                    {
+                        down += 1e9+7;
+                    }
+
+                    int right = grid[i][j];
+                    if(j>0)
+                    {
+                        right += curr[j-1];
+                    }
+                    else 
+                    {
+                        right += 1e9+7;
+                    }
+                    curr[j] = min(down, right);
+                }
+            }
+            prev = curr;
+        }
+
+        return prev[m-1];
+    }
+};
