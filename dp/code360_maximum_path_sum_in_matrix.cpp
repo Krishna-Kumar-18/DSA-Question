@@ -111,3 +111,69 @@ int getMaxPathSum(vector<vector<int>> &matrix)
 
     return ans;
 }
+
+
+
+
+
+
+
+                                                                                // Space Optimization
+
+
+
+
+#include <bits/stdc++.h> 
+
+int getMaxPathSum(vector<vector<int>> &matrix)
+{
+    int n = matrix.size();
+    int m = matrix[0].size();
+    
+    vector<int>prev(m, 0);
+
+    for(int j=0; j<m; j++)
+    {
+        prev[j] = matrix[0][j];
+    }
+
+    for(int i=1; i<n; i++)
+    {
+        vector<int>curr(m, 0);
+        for(int j=0; j<m; j++)
+        {
+            int diagonal_left = matrix[i][j];
+            if(j>0)
+            {
+                diagonal_left += prev[j-1];
+            }
+            else 
+            {
+                diagonal_left += -1e8;
+            }
+
+            int diagonal_down = matrix[i][j] + prev[j];
+
+            int digaonal_right = matrix[i][j];
+            if(j<matrix[0].size()-1)
+            {
+                digaonal_right += prev[j+1];
+            }
+            else 
+            {
+                digaonal_right += -1e8;
+            }
+
+            curr[j] = max(diagonal_left, max(diagonal_down, digaonal_right));
+        }
+        prev = curr;
+    }
+
+    int ans = INT_MIN;
+    for(int j=0; j<prev.size(); j++)
+    {
+        ans = max(ans, prev[j]);
+    }
+
+    return ans;
+}
