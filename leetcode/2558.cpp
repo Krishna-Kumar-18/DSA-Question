@@ -24,3 +24,46 @@ public:
         return sum;
     }
 };
+
+
+
+
+
+
+
+                                                                    // Using Priority Queue
+
+
+class Solution {
+public:
+    long long pickGifts(vector<int>& gifts, int k) 
+    {
+        priority_queue<int>pq;
+
+        for(auto i : gifts)
+        {
+            pq.push(i);
+        }
+
+        int n = gifts.size();
+
+        while(k--)
+        {
+            int ele = pq.top();
+            pq.pop();
+
+            ele = sqrt(ele);
+            pq.push(ele);
+        }
+
+        long long int sum = 0;
+
+        while(!pq.empty())
+        {
+            sum += pq.top();
+            pq.pop();
+        }
+
+        return sum;
+    }
+};
