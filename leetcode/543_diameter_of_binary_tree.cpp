@@ -15,7 +15,7 @@ public:
     {
         if(root == NULL)
         {
-            return 0;
+            reeturn 0;
         }
 
         int lh = solve(root->left, diameter);
