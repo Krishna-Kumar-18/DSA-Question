@@ -16,13 +16,11 @@ int longestSubarrayWithSumK(vector<int> a, long long k)
         {
             len = max(len, i+1);
         }
-        else if(sum>k)
+
+        long long ele = sum-k;
+        if(mp.find(ele) != mp.end())
         {
-            long long ele = sum-k;
-            if(mp.find(ele) != mp.end())
-            {
-                len = max(i-mp[ele], len);
-            }
+            len = max(i-mp[ele], len);
         }
         
         if(mp.find(sum) == mp.end())
