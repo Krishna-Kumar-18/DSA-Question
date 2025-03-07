@@ -1,3 +1,5 @@
+                                            // Same as LCS only S string is reversed
+
 class Solution {
   public:
     int solve(string &s, string &t, int i, int j, vector<vector<int>>&dp)
