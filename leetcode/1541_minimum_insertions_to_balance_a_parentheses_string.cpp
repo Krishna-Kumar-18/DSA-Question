@@ -39,3 +39,50 @@ public:
         return ans;
     }
 };
+
+
+
+
+                                                                            // wihtout stack
+
+class Solution {
+public:
+    int minInsertions(string s) 
+    {
+        int n = s.size();
+
+        int count_open = 0;
+
+        int ans = 0;
+        for(int i=0; i<n; i++)
+        {
+            if(s[i]=='(')
+            {
+                count_open++;
+            }
+            else if(s[i]==')' && i+1<n && s[i+1]==')' && count_open>0)
+            {
+                count_open--;
+                i++;
+            }
+            else if(s[i]==')' && count_open>0)
+            {
+                count_open--;
+                ans++;
+            }
+            else if(s[i]==')' && i+1<n && s[i+1]==')')
+            {
+                ans++;
+                i++;
+            }
+            else if(s[i]==')')
+            {
+                ans += 2;
+            }
+        }
+
+        ans += (count_open) * 2;
+
+        return ans;
+    }
+};                                                                          
